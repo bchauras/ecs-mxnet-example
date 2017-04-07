@@ -14,6 +14,12 @@ Parameters:
         Default: master
 
 Resources:
+  RecordServiceS3Bucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
+    Properties:
+      BucketName: !Join ['machine-learning-ecs-', [!Ref 'AWS::AccountId']]
+      
   CodePipelineCodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
