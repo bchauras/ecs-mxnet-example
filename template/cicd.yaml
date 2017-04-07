@@ -59,7 +59,7 @@ Resources:
     Properties:
       ArtifactStore:
         Type: S3
-        Location: "machine-learning-ecs"
+        Location: !Join ['machine-learning-ecs-', [!Ref 'AWS::AccountId']]
       RoleArn: !GetAtt 'CodePipelineCodeBuildServiceRole.Arn'
       Stages:
       -
