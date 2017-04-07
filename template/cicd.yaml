@@ -18,7 +18,7 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Delete
     Properties:
-      BucketName: !Join ['machine-learning-ecs-', [!Ref 'AWS::AccountId']]
+      BucketName: !Join ['', [machine-learning-ecs-, !Ref 'AWS::AccountId']]
       
   CodePipelineCodeBuildServiceRole:
     Type: AWS::IAM::Role
@@ -59,7 +59,7 @@ Resources:
     Properties:
       ArtifactStore:
         Type: S3
-        Location: !Join ['machine-learning-ecs-', [!Ref 'AWS::AccountId']]
+        Location: !Join ['', [machine-learning-ecs-, !Ref 'AWS::AccountId']]
       RoleArn: !GetAtt 'CodePipelineCodeBuildServiceRole.Arn'
       Stages:
       -
